@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "netlify-build": "sed -i s/VUE_APP_DAILY_API_KEY_PLACEHOLDER/${DAILY_API_KEY}/g netlify.toml"
+    "netlify-build": "sed -i s/VUE_APP_DAILY_API_KEY_PLACEHOLDER/${VUE_APP_DAILY_API_KEY}/g netlify.toml && npm run build"
   },
   "dependencies": {
     "@daily-co/daily-js": "^0.15.0",

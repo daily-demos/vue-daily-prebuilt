@@ -147,12 +147,13 @@ export default {
   max-width: 1200px;
   margin: auto;
   flex: 1;
+  flex-wrap: wrap;
 }
 .call-container.hidden {
   flex: 0;
 }
 #call {
-  width: 100%;
+  flex: 1;
   margin-top: 24px;
 }
 .start-call-container {
