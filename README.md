@@ -50,3 +50,9 @@ npm run build
 ```
 npm run lint
 ```
+
+---
+
+## Related blog posts/tutorials
+
+Lean more about this demo with our [Vue+Daily Prebuilt tutorial](https://www.daily.co/blog/build-a-video-chat-app-with-vue-and-daily-prebuilt/) on the [Daily blog](https://www.daily.co/blog/).
