@@ -10,7 +10,9 @@
         <p v-if="roomError" class="error">Room could not be created</p>
         <p class="subtext">or</p>
         <form @submit="submitJoinRoom">
+          <label for="room">Daily Room URL</label>
           <input
+            id="room"
             type="text"
             placeholder="Enter room URL..."
             v-model="roomUrl"
@@ -201,5 +203,9 @@ button:disabled,
   cursor: not-allowed;
   background: var(--white);
   border: 1px solid var(--grey);
+}
+label {
+  opacity: 0;
+  font-size: 1px;
 }
 </style>
