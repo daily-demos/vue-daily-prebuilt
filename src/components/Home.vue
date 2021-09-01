@@ -9,18 +9,17 @@
         </button>
         <p v-if="roomError" class="error">Room could not be created</p>
         <p class="subtext">or</p>
-
+        <form @submit="submitJoinRoom">
+          <input
+            type="text"
+            placeholder="Enter room URL..."
+            v-model="roomUrl"
+            pattern="^(https:\/\/)?[\w.-]+(\.(daily\.(co)))+[\/\/]+[\w.-]+$"
+            @input="validateInput"
+          />
+          <input type="submit" value="Join room" :disabled="!validRoomURL" />
+        </form>
         <!-- Daily room URL is entered here -->
-        <input
-          type="text"
-          placeholder="Enter room URL..."
-          v-model="roomUrl"
-          pattern="^(https:\/\/)?[\w.-]+(\.(daily\.(co)))+[\/\/]+[\w.-]+$"
-          @input="validateInput"
-        />
-        <button @click="submitJoinRoom" :disabled="!validRoomURL">
-          Join room
-        </button>
       </div>
     </div>
 
@@ -117,9 +116,10 @@ export default {
         .on("joined-meeting", goToCall)
         .on("left-meeting", leaveCall);
 
-      callFrame.join({ url });
+      callFrame.join({ url, showFullscreenButton: true });
     },
-    submitJoinRoom() {
+    submitJoinRoom(e) {
+      e.preventDefault();
       this.joinRoom(this.roomUrl);
     },
     validateInput(e) {
@@ -184,7 +184,20 @@ export default {
   cursor: pointer;
   margin-top: 16px;
 }
-button:disabled {
+.start-call-container input[type="submit"] {
+  color: var(--dark-blue);
+  background: var(--teal);
+  border: 1px solid transparent;
+  padding: 6px 16px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 16px;
+}
+button:disabled,
+.start-call-container input[type="submit"]:disabled {
   cursor: not-allowed;
   background: var(--white);
   border: 1px solid var(--grey);
