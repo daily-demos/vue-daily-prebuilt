@@ -9,7 +9,7 @@
     "netlify-build": "sed -i s/VUE_APP_DAILY_API_KEY_PLACEHOLDER/${VUE_APP_DAILY_API_KEY}/g netlify.toml && npm run build"
   },
   "dependencies": {
-    "@daily-co/daily-js": "^0.15.0",
+    "@daily-co/daily-js": "^0.21.0",
     "core-js": "^3.6.5",
     "vue": "^3.0.0"
   },
